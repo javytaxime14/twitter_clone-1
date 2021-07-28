@@ -1,0 +1,39 @@
+.navbar-custom {
+    background-color: rgba(44, 255, 185, 0.774);
+}
+  
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgb(2, 14, 13);
+}
+
+.navbar-link {
+    color:rgb(7, 116, 116);
+    margin-left: 30px;
+    text-decoration: none;
+}
+
+.log-out {
+    margin-left: 41.55rem;
+    
+}
+
+.log-out li {
+    list-style: none;
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+    color: var(--bs-teal);
+}
+
+a :hover {
+    text-decoration: none;
+    color: var(--bs-success);
+}
+
+
+.user-image {
+    width: 120px;
+}
