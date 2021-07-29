@@ -1,14 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @tweet.content %>
-</p>
+<br>
+<div class="text-center">
+  <h1>My Tweet</h1>
+  <br>
+    <div><%= @tweet.content %>
+    </div>
+    <br>
+    <div><%= image_tag @tweet.user.image, class: 'user-image' %>
+    </div>
+    <br>
 
-<p>
-  <strong>User:</strong>
-  <%= @tweet.user %>
-</p>
+      <div>
+        <% if @tweet.is_liked?(current_user) %>
+          <%= link_to image_tag("unlike.png", :alt => "Like", height: 28, width: 26), tweet_likes_path(@tweet), method: :post %>
+        <% else %> 
+          <%= link_to image_tag("like.png", :alt => "Unlike", height: 26, width: 24), tweet_likes_path(@tweet), method: :post %>
+        <% end %>
+      </div>
+      <div>
+        <small class="float-right"><%= time_ago_in_words @tweet.created_at %> ago by <%= @tweet.user.username%></small>
+      </div>
+      <br>
+      <p><%= @tweet.likes.count %> stars</p>
 
-<%= link_to 'Edit', edit_tweet_path(@tweet) %> |
-<%= link_to 'Back', tweets_path %>
+      <% @tweet.liking_users.each do |user| %>
+        <%=image_tag(user.image, class: "user-image-small")%>
+      <% end %>
+      <br>
+
+    <br>
+    <% if @tweet.user == current_user %>
+      <%= link_to 'Edit', edit_tweet_path(@tweet), class:'btn btn-info col-sm-4 float-right' %> 
+      <%= link_to 'Back', root_path, class:'btn btn-secondary col-sm-4 float-left'  %>
+    <% else %>
+      <%= link_to 'Back', root_path, class:'btn btn-secondary col-sm-4 float-left' %>
+    <% end %>
+</div>
+
+

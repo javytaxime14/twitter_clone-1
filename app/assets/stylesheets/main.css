@@ -28,6 +28,11 @@ a {
     color: var(--bs-teal);
 }
 
+.body-link {
+    text-decoration: none;
+    color: var(--bs-teal);
+}
+
 a :hover {
     text-decoration: none;
     color: var(--bs-success);
@@ -35,5 +40,11 @@ a :hover {
 
 
 .user-image {
-    width: 120px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.user-image-small {
+    width: 40px;
+    border-radius: 50%;
 }

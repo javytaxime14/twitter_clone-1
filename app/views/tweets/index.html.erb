@@ -18,6 +18,7 @@
         <td><%= tweet.content %></td>
         <td><%= tweet.user.username %></td>
         <td><%= image_tag tweet.user.image, class: 'user-image'%></td>
+        <td><%= tweet.likes.count %></td>
       </tr>
     <% end %>
   </tbody>

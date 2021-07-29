@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy 
   has_many :likes
   has_many :liked_tweets, :through => :likes, :source => :tweet
+  validates :email, :username, uniqueness: true
 end

@@ -6,7 +6,8 @@
       <th>Content</th>
       <th>User</th>
       <th></th>
-      <th>Likes</th>
+      <th>Created at</th>
+      <th>Stars</th>
       <th>Retweets</th>
       <th colspan="3"></th>
     </tr>
@@ -18,6 +19,9 @@
         <td><%= tweet.content %></td>
         <td><%= tweet.user.username %></td>
         <td><%= image_tag tweet.user.image, class: 'user-image'%></td>
+        <td class="body-link"><%= link_to time_ago_in_words(tweet.created_at), tweet_path(tweet.id)%> ago</td>
+        <td><%= tweet.likes.count %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -26,3 +30,10 @@
 <br>
 
 <%= link_to 'New Tweet', new_tweet_path %>
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <%= paginate @tweets %>
+    <%= link_to_next_page @tweets, 'Mostrar más tweets' %>
+  </div>
+</div>
