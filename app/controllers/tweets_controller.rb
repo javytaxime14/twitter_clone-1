@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   before_action :set_current_tweet, only: [:likes, :retweet]
   
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.order(created_at: :desc).page params[:page]
   end
   
   def new
@@ -21,8 +21,8 @@ class TweetsController < ApplicationController
   end
 
   def retweet
-    #@tweet
-    n_tweet = Tweet.create(content: @tweet.content, user_id: current_user.id) 
+   Tweet.create(content: @tweet.content, user_id: current_user.id, rt_ref: @tweet.id) 
+    redirect_to root_path
   end
     
   def edit
@@ -66,6 +66,6 @@ class TweetsController < ApplicationController
   end
 
   def tweet_params
-    params.require(:tweet).permit(:content)
+    params.require(:tweet).permit(:content, :rt_ref)
   end
 end

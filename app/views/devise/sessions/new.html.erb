@@ -1,4 +1,4 @@
-<h2>Log in</h2>
+<h1 class="mb-3">Log in</h1>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -18,8 +18,8 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="actions my-3">
+    <%= f.submit "Log in", class: "button-custom" %>
   </div>
 <% end %>
 

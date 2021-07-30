@@ -1,6 +1,6 @@
 <%= form_with(model: tweet, local: true) do |form| %>
   <% if tweet.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation my-3">
       <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
 
       <ul>
@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field w-100">
-    <%= form.text_area :content %>
+  <div class="field mt-3">
+    <%= form.text_area :content, :class => 'text-field' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions my-3">
+    <%= form.submit 'Tweet it!', :class => 'button-custom' %>
   </div>
 <% end %>

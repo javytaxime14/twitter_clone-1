@@ -29,12 +29,25 @@
       <% end %>
       <br>
 
+      <br>
+      <div class="float-right">
+        <%= @tweet.rt_count %> 
+        <% if @tweet.rt_count > 0 %>
+          <%= link_to image_tag("retweet.png", :alt => "Retweet", height: 20, width: 16), tweet_retweet_path(@tweet), method: :post %>
+        <% else %>
+          <%= link_to image_tag("retweet2.png", :alt => "Retweet", height: 20, width: 16), tweet_retweet_path(@tweet), method: :post %>
+        <% end %>
+        <% if @tweet.is_retweet?%>
+          <%= link_to 'Retweet', @tweet.tweet_ref %>
+        <% end %>
+      </div>
+
     <br>
     <% if @tweet.user == current_user %>
-      <%= link_to 'Edit', edit_tweet_path(@tweet), class:'btn btn-info col-sm-4 float-right' %> 
-      <%= link_to 'Back', root_path, class:'btn btn-secondary col-sm-4 float-left'  %>
+      <%= link_to 'Edit', edit_tweet_path(@tweet), class:'btn btn-warning col-sm-4 float-right' %> 
+      <%= link_to 'Back', root_path, class:'btn btn-custom col-sm-4 float-left'  %>
     <% else %>
-      <%= link_to 'Back', root_path, class:'btn btn-secondary col-sm-4 float-left' %>
+      <%= link_to 'Back', root_path, class:'btn btn-custom col-sm-4 float-left' %>
     <% end %>
 </div>
 

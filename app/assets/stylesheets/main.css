@@ -1,21 +1,55 @@
+body {
+    background-color: #f3e2caec;
+}
 .navbar-custom {
-    background-color: rgba(44, 255, 185, 0.774);
+    background-image: linear-gradient(to right, #f9d423 0%, #ff4e50 100%);
 }
   
-.navbar-custom .navbar-brand,
-.navbar-custom .navbar-text {
-    color: rgb(2, 14, 13);
+.logo-link{
+    font-family: 'Crafty Girls', cursive;
+    font-weight: 900;
 }
 
 .navbar-link {
-    color:rgb(7, 116, 116);
+    color: #4A3933;
     margin-left: 30px;
     text-decoration: none;
+    font-family: 'Lato', sans-serif;
 }
 
 .log-out {
-    margin-left: 41.55rem;
-    
+    margin-left: 41.55rem;    
+}
+
+h1 {
+    font-size: 40px;
+    font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+}
+
+h2 li {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+.headings {
+    font-family: 'Raleway', sans-serif;
+}
+
+.content {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.alert {
+    font-family: 'Lato', sans-serif;
+}
+
+.notice {
+    font-family: 'Lato', sans-serif;
 }
 
 .log-out li {
@@ -23,28 +57,45 @@
     text-align: right;
 }
 
+.borderless th {
+    border: none;
+}
+
 a {
     text-decoration: none;
-    color: var(--bs-teal);
+    color: #CC561E;
+    font-weight: 600;
 }
 
 .body-link {
     text-decoration: none;
-    color: var(--bs-teal);
+    color: #CC561E;
+    font-family: 'Raleway', sans-serif;
 }
 
-a :hover {
+a:hover {
     text-decoration: none;
-    color: var(--bs-success);
+    color: #ff5506;
 }
 
+.btn-custom {
+    background: linear-gradient(to right, #f46b45, #eea849);
+}
 
 .user-image {
     width: 100px;
-    border-radius: 10px;
+    border-radius: 5px 20px 5px;
 }
 
 .user-image-small {
     width: 40px;
     border-radius: 50%;
+}
+
+.button-custom {
+    background: linear-gradient(to right, #f46b45, #eea849);
+    color: rgb(37, 6, 0);
+    font-weight: 600;
+    border-radius: 15px 30px 45px 7.5px;
+    padding: 3px 20px;
 }
