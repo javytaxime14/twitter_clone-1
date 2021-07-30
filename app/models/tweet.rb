@@ -4,7 +4,7 @@ class Tweet < ApplicationRecord
   has_many :liking_users, :through => :likes, :source => :user
   validates :content, presence: true
 
-  paginates_per 5
+  paginates_per 50
 
   def is_liked?(user)
     self.liking_users.include?(user)
