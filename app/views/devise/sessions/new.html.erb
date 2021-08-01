@@ -1,13 +1,15 @@
 <h1 class="mb-3">Log in</h1>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field my-2 form-group">
     <%= f.label :email %><br />
+    <%= image_tag("images.png", {:style => "width:21px;"}) %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div class="field my-2 form-group">
     <%= f.label :password %><br />
+    <%= image_tag("pass.png", {:style => "width:16px;"}) %>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -18,8 +20,8 @@
     </div>
   <% end %>
 
-  <div class="actions my-3">
-    <%= f.submit "Log in", class: "button-custom" %>
+  <div class="actions">
+    <%= f.submit "Log in", class: "button-custom my-3" %>
   </div>
 <% end %>
 

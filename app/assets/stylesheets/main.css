@@ -24,6 +24,7 @@ body {
 h1 {
     font-size: 40px;
     font-family: 'Raleway', sans-serif;
+    color: #4A3933;
 }
 
 h2 {
@@ -46,10 +47,13 @@ h2 li {
 
 .alert {
     font-family: 'Lato', sans-serif;
+    background-color: rgb(255, 132, 110);
 }
 
 .notice {
     font-family: 'Lato', sans-serif;
+    background-color: rgb(248, 212, 134);
+    color: rgb(107, 66, 5);
 }
 
 .log-out li {
@@ -58,6 +62,11 @@ h2 li {
 }
 
 .borderless th {
+    border: none;
+    padding-bottom: 12px;
+}
+
+.borderless td {
     border: none;
 }
 
@@ -92,6 +101,12 @@ a:hover {
     border-radius: 50%;
 }
 
+.field {
+    font-family: 'Montserrat', sans-serif;
+    color: #4A3933;
+    font-weight: 600;
+}
+
 .button-custom {
     background: linear-gradient(to right, #f46b45, #eea849);
     color: rgb(37, 6, 0);
@@ -99,3 +114,38 @@ a:hover {
     border-radius: 15px 30px 45px 7.5px;
     padding: 3px 20px;
 }
+
+.button-custom:hover {
+    color: tomato;
+}
+
+.pagination a, .pagination span.current, .pagination span.gap {
+    float: left;
+    padding: 0 14px;
+    line-height: 28px;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    background: linear-gradient(230deg, #f2994a, #f2c94c);
+    color: rgb(238, 93, 10);
+    border: 6px solid linear-gradient(to right, #e43a15, #e65245);
+    border-left-width: 3px;
+    border-radius: 25%;
+}
+
+.pagination a:visited {
+    color: rgb(238, 93, 10); 
+}
+
+.pagination a:hover {
+    color:#f8d63e; 
+}
+
+.page-item.active .page-link {
+    border-color: #e43a15;
+    color:#181614;
+    border-radius: 20%;
+}
+
+
+  

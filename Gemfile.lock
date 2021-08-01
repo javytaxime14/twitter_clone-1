@@ -83,6 +83,8 @@ GEM
     duktape (2.6.0.0)
     erubi (1.10.0)
     execjs (2.8.1)
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.3)
     ffi (1.15.3-x64-mingw32)
     globalid (0.4.2)
@@ -216,12 +218,14 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  bootstrap4-kaminari-view
   byebug
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
   duktape
+  faker
   jbuilder (~> 2.5)
   kaminari
   pg

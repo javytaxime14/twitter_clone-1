@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'kaminari'
+gem 'bootstrap4-kaminari-view', platforms: [:jruby]
+gem 'faker'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
