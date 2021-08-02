@@ -100,6 +100,10 @@ a:hover {
     background: linear-gradient(to right, #f46b45, #eea849);
 }
 
+.btn-back {
+    background: linear-gradient(to right, #e53935, #e35d5b);
+}
+
 .user-image {
     width: 100px;
     border-radius: 5px 20px 5px;

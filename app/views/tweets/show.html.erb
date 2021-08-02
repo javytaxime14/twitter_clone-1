@@ -45,9 +45,11 @@
     <br>
     <% if @tweet.user == current_user %>
       <%= link_to 'Edit', edit_tweet_path(@tweet), class:'btn btn-warning col-sm-4 float-right' %> 
-      <%= link_to 'Back', root_path, class:'btn btn-custom col-sm-4 float-left'  %>
+      <%= link_to 'Profile', user_path(@tweet.user.id), class:'btn btn-custom col-sm-4 pl-3 float-left'  %>
+      <%= link_to 'Back', root_path, class:'btn btn-back col-sm-4 mt-3 float-left'  %>
     <% else %>
-      <%= link_to 'Back', root_path, class:'btn btn-custom col-sm-4 float-left' %>
+      <%= link_to 'Profile', user_path(@tweet.user.id), class:'btn btn-custom col-sm-4 float-left'  %>
+      <%= link_to 'Back', root_path, class:'btn btn-back col-sm-4 float-left' %>
     <% end %>
 </div>
 

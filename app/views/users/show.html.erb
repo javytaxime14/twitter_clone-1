@@ -28,7 +28,7 @@
             <% @user.tweets.reverse.each do |tweet| %>
                 <tr>
                         <td><p class="content"><%= tweet.content %></p></td>
-                        <td><p class="body-link"><%= time_ago_in_words(tweet.created_at) %> ago</p></td>
+                        <td><p class="body-link"><%= link_to time_ago_in_words(tweet.created_at), tweet_path(tweet.id)%> <strong>ago</strong></p></td>
                         <td><small class="content"><%= tweet.likes.count%></small></td>
                         <td><small class="content"><%= tweet.rt_count %></small></td>
                     <% end %>
