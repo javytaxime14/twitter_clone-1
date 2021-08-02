@@ -6,6 +6,7 @@
 
   <div class="field">
     <%= f.label :password, "New password" %><br />
+    <%= image_tag("pass.png", {:style => "width:16px;"}) %>
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
@@ -14,6 +15,7 @@
 
   <div class="field">
     <%= f.label :password_confirmation, "Confirm new password" %><br />
+    <%= image_tag("pass.png", {:style => "width:16px;"}) %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

@@ -5,6 +5,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
+    <%= image_tag("email-icon.png", {:style => "width:16px;"}) %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
 

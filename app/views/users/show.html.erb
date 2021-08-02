@@ -1,0 +1,38 @@
+<br>
+<div class="row">
+<div class="column col-sm-6">
+  <div>
+    <%= image_tag @user.image, class: 'user-image'%>
+    </div>
+    <ul class="main">
+      <li class="mb-5"><strong>@<%= @user.username %>'s Profile </strong></li>
+      <li class="mt-2 list-small"><strong>Email: </strong> <%= @user.email%></li>
+      <li class="list-small"><strong>Member since: </strong><%=  (@user.created_at).strftime("%Y-%B-%d") %></li>
+    </ul>
+    <div>
+    <% if @user == current_user %>
+      <%= (link_to 'Edit Profile', edit_user_registration_path(@user), class:"button-custom my-5" ) %>
+    <% else %>
+      <%= link_to 'Back', root_path, class: "button-custom my-1 mx-1" %>
+    <% end %>
+    </div>
+  </div>
+    <div class="column col-sm-6">
+        <table class= "table table-borderless">
+            <tr>
+                <th>Tweets</th>
+                <th>Created at</th>
+                <th>Stars</th>
+                <th>Retweets</th>
+            </tr>
+            <% @user.tweets.reverse.each do |tweet| %>
+                <tr>
+                        <td><p class="content"><%= tweet.content %></p></td>
+                        <td><p class="body-link"><%= time_ago_in_words(tweet.created_at) %></p></td>
+                        <td><small class="content"><%= tweet.likes.count%></small></td>
+                        <td><small class="content"><%= tweet.rt_count %></small></td>
+                    <% end %>
+                </tr>
+        </table>
+    </div>
+</div>
