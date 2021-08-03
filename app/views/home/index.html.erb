@@ -17,7 +17,7 @@
       <tr>
         <td class="content"><%= tweet.content %></td>
         <td><%= image_tag tweet.user.image, class: 'user-image'%></td>
-        <td class="body-link"><%= link_to time_ago_in_words(tweet.created_at), tweet_path(tweet.id)%><strong> ago </strong><small class="text-dark"> by <%= link_to tweet.user.username, user_path(@tweet.user.id)%></small></td>
+        <td class="body-link"><%= link_to time_ago_in_words(tweet.created_at), tweet_path(tweet.id)%><strong> ago </strong><small class="text-dark"> by <%= link_to tweet.user.username, user_path(tweet.user.id)%></small></td>
         <td><%= tweet.likes.count %></td>
         <td><%= tweet.rt_count %></td>
       </tr>

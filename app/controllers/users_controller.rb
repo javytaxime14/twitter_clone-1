@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       # GET /users/1.json
       def show
         @user = User.find(params[:id])
-        if user_signed_in? && current_user != @user 
+        if user_signed_in? && current_user.id != @user.id 
           if current_user.is_following?(params[:friend_id])
             Friend.where(user_id: current_user.id, friend_id: params[:friend_id]).delete_all
           else
