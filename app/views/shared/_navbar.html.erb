@@ -8,6 +8,7 @@
         <ul class="navbar-nav">
             <% if user_signed_in? %>
             <li class="nav-item"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+            <li class="nav-item"><%= link_to 'Explore', all_tweets_path, :class => 'navbar-link' %></li>
               <ul class="log-out">
                 <li class="nav-item"><small>Logged in as <strong><%= current_user.username %></strong></small> <%=image_tag("hongo_verde.png", width: 25) %>
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>

@@ -21,6 +21,15 @@
       <div>
         <small class="float-right"><%= time_ago_in_words @tweet.created_at %> ago by <%= @tweet.user.username%></small>
       </div>
+      <% if user_signed_in? && current_user != @tweet.user %>
+      <div> 
+        <% if current_user.is_following?(@tweet.user.id) %>
+          <%= link_to 'Unfollow', users_follow_path(@tweet.user.id), method: :post %>
+        <% else %>
+          <%= link_to 'Follow', users_follow_path(@tweet.user.id), method: :post %>
+        <% end %>
+      </div>
+      <% end %>
       <br>
       <p><%= @tweet.likes.count %> stars</p>
 
@@ -37,6 +46,7 @@
         <% else %>
           <%= link_to image_tag("retweet2.png", :alt => "Retweet", height: 20, width: 16), tweet_retweet_path(@tweet), method: :post %>
         <% end %>
+        <br>
         <% if @tweet.is_retweet?%>
           <%= link_to 'Retweet', @tweet.tweet_ref %>
         <% end %>

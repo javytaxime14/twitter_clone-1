@@ -8,7 +8,17 @@
       <li class="mb-5"><strong>@<%= @user.username %>'s Profile </strong></li>
       <li class="mt-2 list-small"><strong>Email: </strong> <%= @user.email%></li>
       <li class="list-small"><strong>Member since: </strong><%=  (@user.created_at).strftime("%Y-%B-%d") %></li>
+      <br>
+      <li class="list-small"><strong>Friends: </strong><%= @user.friends.count %></li>
     </ul>
+    <% if user_signed_in?%>
+      <% if current_user.is_following?(@user.id) %>
+        <%= link_to 'Unfollow', users_follow_path(@user.id), method: :post %>
+      <% else %>
+        <%= link_to 'Follow', users_follow_path(@user.id), method: :post %>
+      <% end %>
+  <% end %>
+    <br>
     <div>
     <% if @user == current_user %>
       <%= (link_to 'Edit Profile', edit_user_registration_path(@user), class:"button-custom my-5" ) %>

@@ -10,7 +10,14 @@ class UsersController < ApplicationController
       # GET /users/1
       # GET /users/1.json
       def show
-      
+        @user = User.find(params[:id])
+        if user_signed_in?
+          if current_user.is_following?(params[:friend_id])
+            Friend.where(user_id: current_user.id, friend_id: params[:friend_id]).delete_all
+          else
+            Friend.create(user_id: current_user.id, friend_id: params[:friend_id])
+          end
+        end
       end
     
       # GET /users/new
@@ -21,23 +28,17 @@ class UsersController < ApplicationController
       # GET /users/1/edit
       def edit
       end
-    
-      # POST /users
-      # POST /users.json
-      def create
-        @user = User.new(user_params)
-    
-        respond_to do |format|
-          if @user.save
-            format.html { redirect_to '/'+@user.username, notice: 'Bienvenido!' }
-            format.json { render :show, status: :created, location: @user }
-          else
-            format.html { render :new }
-            format.json { render json: @user.errors, status: :unprocessable_entity }
-          end
+
+      def follow
+        if current_user.is_following?(params[:friend_id])
+          Friend.where(user_id: current_user.id, friend_id: params[:friend_id]).delete_all
+        else
+          Friend.create(user_id: current_user.id, friend_id: params[:friend_id])
         end
+        redirect_to root_path
       end
     
+      
       # PATCH/PUT /users/1
       # PATCH/PUT /users/1.json
       def update

@@ -7,5 +7,15 @@ class User < ApplicationRecord
   has_many :likes
   has_many :liked_tweets, :through => :likes, :source => :tweet
   validates :email, :username, uniqueness: true
+
+  has_many :friends
+
+  def is_following?(friend_id)
+    self.friends.where(:friend_id => friend_id).exists?
+  end
+
+  def arr_friends_id
+    friends.pluck(:friend_id)
+  end
 end
 

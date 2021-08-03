@@ -6,6 +6,8 @@ class Tweet < ApplicationRecord
 
   paginates_per 50
 
+  scope :tweets_for_me, -> (user) { where(user_id: user.arr_friends_id) }
+
   def is_liked?(user)
     self.liking_users.include?(user)
   end
