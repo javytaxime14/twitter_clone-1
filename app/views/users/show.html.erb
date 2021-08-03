@@ -11,7 +11,8 @@
       <br>
       <li class="list-small"><strong>Friends: </strong><%= @user.friends.count %></li>
     </ul>
-    <% if user_signed_in?%>
+    <br>
+    <% if user_signed_in? && current_user != @user %>
       <% if current_user.is_following?(@user.id) %>
         <%= link_to 'Unfollow', users_follow_path(@user.id), method: :post %>
       <% else %>
