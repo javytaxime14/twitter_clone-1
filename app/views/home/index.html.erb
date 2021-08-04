@@ -1,4 +1,13 @@
-<h1>Tweets</h1>
+<%= search_form_for @q do |f| %>
+    <div class="form-group">
+        <%= f.label :content_cont %>
+        <%= f.search_field :content_cont, class: "form-control", placeholder: "search text" %>
+        <br>
+    </div>
+        <%= f.submit "Let's search", class: "button-custom" %>
+<% end %>
+
+<h1 class="mt-5">Tweets</h1>
 
 <table class="table borderless">
   <thead class="thead-custom">

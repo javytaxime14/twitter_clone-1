@@ -4,7 +4,8 @@ class TweetsController < ApplicationController
   before_action :set_current_tweet, only: [:likes, :retweet]
   
   def index
-    @tweets = Tweet.order(created_at: :desc).page params[:page]
+    @q = Tweet.order('created_at DESC').page(params[:page]).ransack(params[:q])
+    @tweets = @q.result(distinct: true)
   end
   
   def new

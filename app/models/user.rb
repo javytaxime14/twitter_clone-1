@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_many :friends
 
+  
+
   def is_following?(friend_id)
     self.friends.where(:friend_id => friend_id).exists?
   end
