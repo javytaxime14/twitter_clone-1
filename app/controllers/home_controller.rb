@@ -4,18 +4,21 @@ class HomeController < ApplicationController
   def index
     @q = Tweet.includes([:user, :likes]).order('created_at DESC').page(params[:page]).ransack(params[:q])
     @tweets = @q.result(distinct: true)
+  
 
-    if signed_in? && current_user.friends.count > 0
-      @tweets = Tweet.tweets_for_me(current_user).order(created_at: :desc).page params[:page]
-    else
-      @tweets = Tweet.order(created_at: :desc).page params[:page]
+    if params[:q].blank?
+      if signed_in? && current_user.friends.count > 0
+        @tweets = Tweet.tweets_for_me(current_user).order(created_at: :desc).page params[:page]
+      else
+        @tweets = Tweet.order(created_at: :desc).page params[:page]
+      end
     end
     @tweet = Tweet.new
   end
 
   def all_tweets
-    @tweets = Tweet.order(created_at: :desc).page params[:page]
-    @tweet = Tweet.new
+    @q = Tweet.order('created_at DESC').page(params[:page]).ransack(params[:q])
+    @tweets = @q.result(distinct: true)
 
     render "index"
   end
