@@ -9,4 +9,7 @@
 200.times do
     Tweet.create(content: Faker::Lorem.sentence, user_id: [1,2,3,4,5].sample)
 end
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+AdminUser.create!(email: 'admin@shrouded-atoll-56290.com', password: 'password', password_confirmation: 'password')
