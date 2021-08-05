@@ -2,41 +2,42 @@
 <div class="text-center">
   <h1>My Tweet</h1>
   <br>
-    <div><%= @tweet.content %>
+    <div class="content"><%= render_with_hashtags(@tweet.content)%>
     </div>
     <br>
     <div><%= image_tag @tweet.user.image, class: 'user-image' %>
     </div>
     <br>
-
+    
+      <div>
+        <small class="float-right"><%= time_ago_in_words @tweet.created_at %> ago by <%= @tweet.user.username%></small>
+      </div>
+      <br>
+      <% if user_signed_in? && current_user != @tweet.user %>
+      <div> 
+        <% if current_user.is_following?(@tweet.user.id) %>
+        <%= link_to image_tag("unfollow.png", :alt => "Unfollow", height: 22, width: 20), users_follow_path(@tweet.user.id), method: :post, class: "button-custom my-1 mx-1" %>
+        <small class="list-small text-danger"><strong>Unfollow user</strong></small>
+        <% else %>
+          <%= link_to image_tag("follow.jpg", :alt => "Follow", height: 29, width: 27), users_follow_path(@tweet.user.id), method: :post, class: "button-custom my-1 mx-1" %>
+          <small class="list-small text-dark"><strong>Follow this user</strong></small>
+        <% end %>
+      </div>
+      <% end %>
+      <br>
       <div>
         <% if @tweet.is_liked?(current_user) %>
           <%= link_to image_tag("unlike.png", :alt => "Like", height: 28, width: 26), tweet_likes_path(@tweet), method: :post %>
         <% else %> 
           <%= link_to image_tag("like.png", :alt => "Unlike", height: 26, width: 24), tweet_likes_path(@tweet), method: :post %>
         <% end %>
-      </div>
-      <div>
-        <small class="float-right"><%= time_ago_in_words @tweet.created_at %> ago by <%= @tweet.user.username%></small>
-      </div>
-      <% if user_signed_in? && current_user != @tweet.user %>
-      <div> 
-        <% if current_user.is_following?(@tweet.user.id) %>
-          <%= link_to 'Unfollow', users_follow_path(@tweet.user.id), method: :post %>
-        <% else %>
-          <%= link_to 'Follow', users_follow_path(@tweet.user.id), method: :post %>
-        <% end %>
-      </div>
-      <% end %>
-      <br>
-      <p><%= @tweet.likes.count %> stars</p>
-
+      </div><br>
+      <p class="content"><%= @tweet.likes.count %> stars</p>
       <% @tweet.liking_users.each do |user| %>
         <%=image_tag(user.image, class: "user-image-small")%>
       <% end %>
       <br>
 
-      <br>
       <div class="float-right">
         <%= @tweet.rt_count %> 
         <% if @tweet.rt_count > 0 %>

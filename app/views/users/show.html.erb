@@ -14,9 +14,11 @@
     <br>
     <% if user_signed_in? && current_user != @user %>
       <% if current_user.is_following?(@user.id) %>
-        <%= link_to 'Unfollow', users_follow_path(@user.id), method: :post %>
+        <%= link_to image_tag("unfollow.png", :alt => "Unfollow", height: 23, width: 21), users_follow_path(@user.id), method: :post, class: "button-custom my-1 mx-1" %>
+        <small class="list-small text-danger"><strong>Unfollow user</strong></small>
       <% else %>
-        <%= link_to 'Follow', users_follow_path(@user.id), method: :post %>
+        <%= link_to image_tag("follow.jpg", :alt => "Follow", height: 30, width: 28), users_follow_path(@user.id), method: :post, class: "button-custom my-1 mx-1" %>
+        <small class="list-small text-dark"><strong>Follow user</strong></small>  
       <% end %>
   <% end %>
     <br>
@@ -39,7 +41,7 @@
             </tr>
             <% @user.tweets.reverse.each do |tweet| %>
                 <tr>
-                        <td><p class="content"><%= tweet.content %></p></td>
+                        <td><p class="content"><%= render_with_hashtags(tweet.content) %></p></td>
                         <td><p class="body-link"><%= link_to time_ago_in_words(tweet.created_at), tweet_path(tweet.id)%> <strong>ago</strong></p></td>
                         <td><small class="content"><%= tweet.likes.count%></small></td>
                         <td><small class="content"><%= tweet.rt_count %></small></td>
