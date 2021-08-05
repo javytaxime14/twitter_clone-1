@@ -1,4 +1,13 @@
-<h1>Tweets</h1>
+<%= search_form_for @q do |f| %>
+    <div class="form-group">
+        <%= f.label :content_cont %>
+        <%= f.search_field :content_cont, class: "form-control", placeholder: "search text" %>
+        <br>
+    </div>
+        <%= f.submit "Let's search!", class: "button-custom" %>
+<% end %>
+
+<h1 class="mt-5">Tweets</h1>
 
 <table class="table borderless">
   <thead class="thead-custom">
@@ -15,9 +24,9 @@
   <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
-        <td class="content"><%= tweet.content %></td>
+        <td class="content"><%= render_with_hashtags(tweet.content) %></td>
         <td><%= image_tag tweet.user.image, class: 'user-image'%></td>
-        <td class="body-link"><%= link_to time_ago_in_words(tweet.created_at), tweet_path(tweet.id)%> ago <small class="text-dark"> by <%= tweet.user.username %></small></td>
+        <td class="body-link"><%= link_to time_ago_in_words(tweet.created_at), tweet_path(tweet.id)%><strong> ago </strong><small class="text-dark"> by <%= link_to tweet.user.username, user_path(tweet.user.id)%></small></td>
         <td><%= tweet.likes.count %></td>
         <td><%= tweet.rt_count %></td>
       </tr>

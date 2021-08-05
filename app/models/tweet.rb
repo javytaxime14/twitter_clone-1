@@ -3,6 +3,7 @@ class Tweet < ApplicationRecord
   has_many :likes
   has_many :liking_users, :through => :likes, :source => :user
   validates :content, presence: true
+  has_and_belongs_to_many :tags 
 
   paginates_per 50
 
@@ -31,4 +32,25 @@ class Tweet < ApplicationRecord
   def tweet_ref
     Tweet.find(self.rt_ref)
   end
+
+  after_create do
+    hashtags = self.content.scan(/#\w+/)
+    hashtags.uniq.map do |hashtag|
+      tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
+      self.tags << tag
+    end
+  end
+
+  before_update do
+    self.tags.clear
+    hashtags = self.content.scan(/#\w+/)
+    hashtags.uniq.map do |hashtag|
+      tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
+      self.tags << tag
+    end
+  end
+
+
+
+
 end

@@ -24,7 +24,7 @@
   <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
-        <td class="content"><%= render_with_hashtags(tweet.content)%></td>
+        <td class="content"><%= render_with_hashtags(tweet.content) %></td>
         <td><%= image_tag tweet.user.image, class: 'user-image'%></td>
         <td class="body-link"><%= link_to time_ago_in_words(tweet.created_at), tweet_path(tweet.id)%><strong> ago </strong><small class="text-dark"> by <%= link_to tweet.user.username, user_path(tweet.user.id)%></small></td>
         <td><%= tweet.likes.count %></td>
@@ -37,10 +37,3 @@
 <br>
 
 <button class="button-custom"><%= link_to 'New Tweet', new_tweet_path %></button>
-
-<div class="row">
-  <div class="col-md-8 offset-md-2">
-    <%= paginate @tweets %>
-    <%= link_to_next_page @tweets, 'Mostrar más tweets' %>
-  </div>
-</div>

@@ -25,6 +25,16 @@ class TweetsController < ApplicationController
    Tweet.create(content: @tweet.content, user_id: current_user.id, rt_ref: @tweet.id) 
     redirect_to root_path
   end
+
+  def hashtags
+    @q = Tweet.order('created_at DESC').page(params[:page]).ransack(params[:q])
+    @tweets = @q.result(distinct: true)
+
+    if params[:q].blank?
+    tag = Tag.find_by(name: params[:name]) 
+    @tweets = tag.tweets
+    end
+  end
     
   def edit
   

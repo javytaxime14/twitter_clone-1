@@ -23,6 +23,13 @@ class HomeController < ApplicationController
     render "index"
   end
 
+  def hashtags
+    tag = Tag.find_by(name: params[:name])
+    @q = tag.tweets.includes([:user, :likes]).order('created_at DESC').page(params[:page]).ransack(params[:q])
+    @tweets = @q.result(distinct: true)
+    @tweet = Tweet.new
+  end
+
   def likes
     if @tweet.is_liked?(current_user)
       @tweet.unlike(current_user)  
