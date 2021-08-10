@@ -42,11 +42,12 @@
             <% @user.tweets.reverse.each do |tweet| %>
                 <tr>
                         <td><p class="content"><%= render_with_hashtags(tweet.content) %></p></td>
-                        <td><p class="body-link"><%= link_to time_ago_in_words(tweet.created_at), tweet_path(tweet.id)%> <strong>ago</strong></p></td>
-                        <td><small class="content"><%= tweet.likes.count%></small></td>
-                        <td><small class="content"><%= tweet.rt_count %></small></td>
+                        <td><p class="fs-6 body-link"><%= link_to time_ago_in_words(tweet.created_at), tweet_path(tweet.id)%> <strong class="fs-6 body-link">ago</strong></p></td>
+                        <td><small class="content fw-bold fs-6"><%= tweet.likes.count%></small></td>
+                        <td><small class="content fw-bold fs-6"><%= tweet.rt_count %></small></td>
                     <% end %>
                 </tr>
         </table>
     </div>
 </div>
+

@@ -22,7 +22,7 @@ body {
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 36px;
     font-family: 'Raleway', sans-serif;
     color: #4A3933;
     padding-bottom: 12px;
@@ -45,6 +45,13 @@ h2 li {
 
 .content {
     font-family: 'Montserrat', sans-serif;
+
+}
+
+.liking {
+    font-family: 'Lato', sans-serif;
+    color: tomato;
+    font-weight: 600;
 }
 
 .alert {
@@ -87,13 +94,30 @@ a {
 
 .body-link {
     text-decoration: none;
-    color: #CC561E;
+    color: #df5414;
     font-family: 'Raleway', sans-serif;
+    font-size: 15px;
 }
 
 a:hover {
     text-decoration: none;
     color: #ff5506;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; 
+  }
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
 }
 
 .btn-custom {
@@ -119,6 +143,9 @@ a:hover {
     color: #4A3933;
     font-weight: 600;
 }
+.user-log{
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
 
 .button-custom {
     background: linear-gradient(to right, #f46b45, #eea849);
@@ -128,9 +155,16 @@ a:hover {
     padding: 3px 20px;
 }
 
+.creation-date {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 14px;
+}
+
 .main {
     list-style: none;
     display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
     padding-top: 13px;
     padding-bottom: 13px;
     padding-left: 10px;
@@ -140,6 +174,7 @@ a:hover {
 .list-small {
     font-size: 13px;
     font-family: 'Raleway', sans-serif;
+    font-weight: 400;
 }
 
 .button-custom:hover {

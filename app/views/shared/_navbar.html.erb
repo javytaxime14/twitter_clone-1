@@ -9,7 +9,7 @@
             <% if user_signed_in? %>
             <li class="nav-item"><%= link_to 'Explore', all_tweets_path, :class => 'navbar-link' %></li>
               <ul class="log-out">
-                <li class="nav-item"><small>Logged in as <strong class="font-weight-bold"><%= link_to current_user.username, user_path(current_user.id), :class => 'text-danger' %></strong></small> <%=image_tag("hongo_verde.png", width: 25) %>
+                <li class="nav-item"><small class="user-log">Signed in as <strong class="font-weight-bold"><%= link_to current_user.username, user_path(current_user.id), :class => 'text-danger' %></strong></small> <%=image_tag("hongo_verde.png", width: 25) %>
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
           <% else %>
             <li class="nav-item"><%= link_to "Home", root_path, :class => 'navbar-link' %></li>
