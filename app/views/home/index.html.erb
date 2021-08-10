@@ -35,8 +35,9 @@
 </table>
 
 <br>
-
-<button class="button-custom"><%= link_to 'New Tweet', new_tweet_path %></button>
+<% if user_signed_in? %>
+  <button class="button-custom"><%= link_to 'New Tweet', new_tweet_path %></button>
+<% end %>
 
 <div class="row">
   <div class="col-md-8 offset-md-2">

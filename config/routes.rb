@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  scope '/api' do
+    get '/news', to: 'api#index'
+    get '/:start_date/:end_date', to: 'api#show'
+    post '/tweets', to: 'api#create', as: 'api_create'
+  end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :tweets do

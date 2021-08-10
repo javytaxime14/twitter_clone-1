@@ -19,5 +19,11 @@ class User < ApplicationRecord
   def arr_friends_id
     friends.pluck(:friend_id)
   end
+
+  def self.authenticate(email, password)
+    user = User.find_for_authentication(email: email)
+    user &.valid_password?(password) ? user : nil
+  end
+
 end
 
