@@ -32,22 +32,22 @@
           <%= link_to image_tag("like.png", :alt => "Unlike", height: 26, width: 24), tweet_likes_path(@tweet), method: :post %>
         <% end %>
       </div><br>
-      <p class="content"><%= @tweet.likes.count %> stars</p>
+      <p class="headings"><%= @tweet.likes.count %> stars</p>
       <% @tweet.liking_users.each do |user| %>
         <%=image_tag(user.image, class: "user-image-small", data: {toggle: "popover", placement: "bottom"}, title: user.username)%>
       <% end %>
       <br>
       <br>
 
-      <small class="content liking fw-bolder"><% if @tweet.liking_users.count == 0 %>
-        This tweet doesn't have any stars yet. <br> Be the first to give it one! <%=image_tag("estrella.png", width: 16) %></p>
+      <small class="content liking"><% if @tweet.liking_users.count == 0 %>
+        This tweet doesn't have any stars yet. <br> Be the first to give one! <%=image_tag("estrella.png", width: 16) %></p>
         <% end %></small>
 
-      <small class="content liking fw-bolder"><% if @tweet.liking_users.count == 1 %>
+      <small class="content liking"><% if @tweet.liking_users.count == 1 %>
       <%= @tweet.liking_users.last.username%> liked this
       <% end %></small>
 
-      <small class="content liking fw-bolder"><% if @tweet.liking_users.count >= 2 %>
+      <small class="content liking"><% if @tweet.liking_users.count >= 2 %>
       <%= @tweet.liking_users.last.username%> and <%= (@tweet.likes.count - 1) %> more users liked this
       <% end %></small>
 
@@ -68,12 +68,12 @@
 
     <br>
     <% if @tweet.user == current_user %>
-      <%= link_to 'Edit', edit_tweet_path(@tweet), class:'btn btn-warning col-sm-4 float-right' %> 
-      <%= link_to 'Profile', user_path(@tweet.user.id), class:'btn btn-custom col-sm-4 pl-3 float-left'  %>
-      <%= link_to 'Back', root_path, class:'btn btn-back col-sm-4 mt-3 float-left'  %>
+      <%= link_to 'Edit', edit_tweet_path(@tweet), class:'btn btn-warning col-sm-4 float-right content fw-bolder' %> 
+      <%= link_to 'Profile', user_path(@tweet.user.id), class:'btn btn-custom col-sm-4 pl-3 float-left content fw-bolder'  %>
+      <%= link_to 'Back', root_path, class:'btn btn-back col-sm-4 mt-3 float-left content fw-bolder'  %>
     <% else %>
-      <%= link_to 'Profile', user_path(@tweet.user.id), class:'btn btn-custom col-sm-4 float-left'  %>
-      <%= link_to 'Back', root_path, class:'btn btn-back col-sm-4 float-left' %>
+      <%= link_to 'Profile', user_path(@tweet.user.id), class:'btn btn-custom col-sm-4 float-left content fw-bolder'  %>
+      <%= link_to 'Back', root_path, class:'btn btn-back col-sm-4 float-left content fw-bolder' %>
     <% end %>
 </div>
 

@@ -1,5 +1,9 @@
 body {
     background-color: #f3e2caec;
+    background-attachment: scroll;
+    background-size: cover;
+    max-width: 1700px;
+
 }
 .navbar-custom {
     background-image: linear-gradient(to right, #f9d423 0%, #ff4e50 100%);
@@ -8,6 +12,7 @@ body {
 .logo-link{
     font-family: 'Crafty Girls', cursive;
     font-weight: 900;
+    font-size: 20px;
 }
 
 .navbar-link {
@@ -22,10 +27,11 @@ body {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 35px;
     font-family: 'Raleway', sans-serif;
     color: #4A3933;
     padding-bottom: 12px;
+    font-weight: 600;
 }
 
 h2 {
@@ -51,7 +57,10 @@ h2 li {
 .liking {
     font-family: 'Lato', sans-serif;
     color: tomato;
-    font-weight: 600;
+    font-weight: 800;
+    font-style: oblique;
+    font-size: 14px;
+
 }
 
 .alert {
@@ -88,7 +97,7 @@ h2 li {
 
 a {
     text-decoration: none;
-    color: #CC561E;
+    color: #df5414;
     font-weight: 600;
 }
 
@@ -104,21 +113,7 @@ a:hover {
     color: #ff5506;
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; 
-  }
 
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-}
 
 .btn-custom {
     background: linear-gradient(to right, #f46b45, #eea849);
@@ -157,7 +152,12 @@ a:hover {
 
 .creation-date {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 14px;
+    font-size: 15px;
+}
+
+:placeholder-shown {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 16px;
 }
 
 .main {
